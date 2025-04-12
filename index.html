@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top Value NFTs Marketplace</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">NFT<span class="accent-text">Peaks</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Explore</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Collections</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Artists</a>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <button class="btn btn-outline-light me-2">Connect Wallet</button>
+                    <button class="btn btn-primary">
+                        <i class="fas fa-shopping-cart me-1"></i> Cart
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="container mt-5">
+        <div class="row align-items-center mb-5">
+            <div class="col-lg-6">
+                <h1 class="display-4 fw-bold mb-4">Discover Rare and <span class="accent-text">Valuable NFTs</span></h1>
+                <p class="lead mb-4">Explore the world's most expensive digital collectibles and unique artwork on our premium NFT marketplace.</p>
+                <button class="btn btn-primary btn-lg me-3">Explore Collection</button>
+                <button class="btn btn-outline-light btn-lg">Learn More</button>
+            </div>
+            <div class="col-lg-6">
+                <img src="/api/placeholder/600/400" alt="Hero NFT Art" class="img-fluid rounded-3 shadow-lg">
+            </div>
+        </div>
+    </div>
+
+    <!-- Filter Section -->
+    <div class="container mt-5">
+        <div class="filter-section">
+            <div class="row">
+                <div class="col-md-3">
+                    <select class="form-select" id="sort-select">
+                        <option value="price_desc" selected>Sort By: Price (High to Low)</option>
+                        <option value="price_asc">Sort By: Price (Low to High)</option>
+                        <option value="recent">Sort By: Recently Added</option>
+                        <option value="viewed">Sort By: Most Viewed</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <select class="form-select" id="category-select">
+                        <option value="all" selected>All Categories</option>
+                        <option value="art">Art</option>
+                        <option value="collectibles">Collectibles</option>
+                        <option value="game">Game Assets</option>
+                        <option value="music">Music</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <select class="form-select" id="blockchain-select">
+                        <option value="all" selected>All Blockchains</option>
+                        <option value="ethereum">Ethereum</option>
+                        <option value="solana">Solana</option>
+                        <option value="polygon">Polygon</option>
+                        <option value="bsc">Binance Smart Chain</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <button class="btn btn-primary w-100" id="filter-btn">Apply Filters</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- NFT Cards Container -->
+    <div class="container">
+        <h2 class="section-title">Highest Value NFTs</h2>
+        <div class="row" id="nft-container">
+            <!-- NFT cards will be loaded here dynamically -->
+            <div class="col-12 text-center py-5">
+                <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+                <p class="mt-3">Loading NFTs...</p>
+            </div>
+        </div>
+
+        <!-- Load More Button -->
+        <div class="text-center mt-4 mb-5">
+            <button class="btn btn-primary btn-lg px-5" id="load-more-btn">Load More</button>
+        </div>
+    </div>
+
+    <!-- Trending Collections -->
+    <div class="container mt-5">
+        <h2 class="section-title">Trending Collections</h2>
+        <div class="row" id="collections-container">
+            <!-- Collection cards will be loaded here dynamically -->
+            <div class="col-12 text-center py-5">
+                <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+                <p class="mt-3">Loading Collections...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Newsletter Section -->
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card p-4 text-center">
+                    <h3 class="mb-3">Stay Updated on Valuable NFTs</h3>
+                    <p class="mb-4">Subscribe to our newsletter and never miss out on the latest high-value NFT drops and market insights.</p>
+                    <div class="input-group mb-3">
+                        <input type="email" class="form-control" placeholder="Enter your email address" aria-label="Email">
+                        <button class="btn btn-primary" type="button">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <h5 class="text-white mb-3">NFT<span class="accent-text">Peaks</span></h5>
+                    <p class="text-muted">The premier marketplace for the world's most valuable NFTs and digital collectibles.</p>
+                    <div class="social-icons mt-3">
+                        <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-discord"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-telegram"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 mt-4 mt-lg-0">
+                    <h5 class="text-white mb-3">Marketplace</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-muted">All NFTs</a></li>
+                        <li class="mb-2"><a href="#" class="text-muted">Art</a></li>
+                        <li class="mb-2"><a href="#" class="text-muted">Collectibles</a></li>
+                        <li class="mb-2"><a href="#" class="text-muted">Domain Names</a></li>
+                        <li><a href="#" class="text-muted">Virtual Worlds</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mt-4 mt-lg-0">
+                    <h5 class="text-white mb-3">Resources</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-muted">Help Center</a></li>
+                        <li class="mb-2"><a href="#" class="text-muted">Platform Status</a></li>
+                        <li class="mb-2"><a href="#" class="text-muted">Partners</a></li>
+                        <li class="mb-2"><a href="#" class="text-muted">Blog</a></li>
+                        <li><a href="#" class="text-muted">Newsletter</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mt-4 mt-lg-0">
+                    <h5 class="text-white mb-3">Company</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-muted">About</a></li>
+                        <li class="mb-2"><a href="#" class="text-muted">Careers</a></li>
+                        <li class="mb-2"><a href="#" class="text-muted">Ventures</a></li>
+                        <li class="mb-2"><a href="#" class="text-muted">Grants</a></li>
+                        <li><a href="#" class="text-muted">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mt-4 mt-lg-0">
+                    <h5 class="text-white mb-3">Legal</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-muted">Privacy Policy</a></li>
+                        <li class="mb-2"><a href="#" class="text-muted">Terms of Service</a></li>
+                        <li><a href="#" class="text-muted">Copyright</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="mt-4 mb-3" style="background-color: #333;">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <p class="text-muted mb-0">© 2025 NFTPeaks. All rights reserved. Powered by OpenSea API.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Templates for dynamic content -->
+    <template id="nft-card-template">
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card">
+                <img src="" class="card-img-top" alt="NFT Artwork">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <span class="badge badge-eth">Ethereum</span>
+                        <span class="badge badge-status"></span>
+                    </div>
+                    <h5 class="card-title"></h5>
+                    <div class="d-flex align-items-center mb-3">
+                        <img src="" class="creator-img" alt="Creator">
+                        <span class="creator-name"></span>
+                    </div>
+                    <p class="card-text"></p>
+                    <div class="d-flex justify-content-between align-items-center mt-3">
+                        <div class="price">
+                            <i class="fab fa-ethereum me-1"></i> <span class="price-value"></span>
+                        </div>
+                        <button class="btn btn-primary">
+                            <i class="fas fa-shopping-cart me-1"></i> Buy Now
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <template id="collection-card-template">
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="" class="card-img-top" alt="Collection">
+                <div class="card-body">
+                    <h5 class="card-title"></h5>
+                    <p class="card-text"></p>
+                    <button class="btn btn-primary w-100">View Collection</button>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="app.js"></script>
+</body>
+</html>
